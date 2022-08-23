@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import Articles from './components/Articles';
+import Header from './components/Header';
+import Nav from './components/Nav';
+import { BrowserRouter } from "react-router-dom";
+import { useState, useEffect, useContext } from 'react';
+import {fetchArticles} from './api'
+
 
 function App() {
+  const [topic, setTopic] = useState('none')
+  const [user, setUser] = useState('none')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+    <div>
+    <Header />
+    <Nav />
+    <Articles />
     </div>
-  );
+    </BrowserRouter>
+  )
 }
 
 export default App;
