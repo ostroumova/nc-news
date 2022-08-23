@@ -7,14 +7,14 @@ const Nav = ({ topics, setTopics }) => {
     fetchTopics().then(({ topics: topicsFromApi }) => {
       setTopics(topicsFromApi);
     });
-  }, []);
+  }, [setTopics]);
 
   return (
     <nav className="row">
       <Link to="/articles">all articles |</Link>
       {topics.map((topic) => {
         return (
-          <Link key={topic.slug} to={`/articles/${topic.slug}`}>
+          <Link key={topic.slug} to={`/articles/topics/${topic.slug}`}>
             {" "}
             | {topic.slug} |
           </Link>
