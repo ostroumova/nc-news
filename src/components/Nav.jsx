@@ -5,11 +5,10 @@ const Nav = () => {
     <nav className="row">
   
       <Link to="/">All topics</Link> |
-      <Link to="topics/?mitch">Mitch</Link> |
-      <Link to="topics/?cats">Cats</Link> |
-      <Link to="topics/?paper">Paper</Link> |
-      <Link to="Login">LogIn</Link> |
-  
+      <Link to="topics/?coding">Coding</Link> |
+      <Link to="topics/?football">Football</Link> |
+      <Link to="topics/?cooking">Cooking</Link> |
+      
     </nav>
   );
 };

@@ -1,11 +1,11 @@
 import ArticleCard from "./ArticleCard";
-import {useState, useEffect, useContext} from 'react'
+import {useState, useEffect} from 'react'
 import { fetchArticles } from "../api";
-import {postComment} from "../api";
+
 
 function Articles() {
     const [articles, setArticles] = useState([])
-    
+
   
 
 useEffect(() => {
