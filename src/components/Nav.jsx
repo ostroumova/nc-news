@@ -4,10 +4,10 @@ const Nav = () => {
   return (
     <nav className="row">
   
-      <Link to="/">All topics</Link> |
-      <Link to="topics/?coding">Coding</Link> |
-      <Link to="topics/?football">Football</Link> |
-      <Link to="topics/?cooking">Cooking</Link> |
+      <Link to="">All topics</Link> |
+      <Link to="">Coding</Link> |
+      <Link to="">Football</Link> |
+      <Link to="">Cooking</Link> |
       
     </nav>
   );
