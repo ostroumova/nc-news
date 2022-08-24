@@ -41,3 +41,9 @@ export const decreaseArticle = (article_id) => {
     }
   );
 };
+
+export const getComments = (article_id) => {
+  return axios.get(
+    `https://ostroumova-news.herokuapp.com/api/articles/${article_id}/comments`
+  );
+};

@@ -4,6 +4,7 @@ import { fetchArticleById } from "../api";
 import moment from "moment";
 import { useState } from "react";
 import Votes from "./Votes";
+import Comments from "./Comments";
 
 const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState({});
@@ -21,8 +22,13 @@ const SingleArticle = () => {
       <img src={"article image"} alt={"article_image"} />
       <p>{moment(singleArticle.created_at).utc().format("YYYY-MM-DD")}</p>
       <p>{singleArticle.body}</p>
-      <button className="comment">Comment:{singleArticle.comment_count}</button>
-      <Votes article_id={article_id} votes={singleArticle.votes} />
+      <p className="author">Author: {singleArticle.author}</p>
+      <div className="button-container">
+        <button onClick={<Comments />} className="comment">
+          Comments:{singleArticle.comment_count}
+        </button>
+        <Votes article_id={article_id} votes={singleArticle.votes} />
+      </div>
     </section>
   );
 };
