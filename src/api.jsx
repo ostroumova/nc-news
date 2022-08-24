@@ -23,3 +23,27 @@ export const fetchArticleById = (article_id) => {
     `https://ostroumova-news.herokuapp.com/api/articles/${article_id}`
   );
 };
+
+export const updateArticle = (article_id) => {
+  return axios.patch(
+    `https://ostroumova-news.herokuapp.com/api/articles/${article_id}`,
+    {
+      inc_votes: 1,
+    }
+  );
+};
+
+export const decreaseArticle = (article_id) => {
+  return axios.patch(
+    `https://ostroumova-news.herokuapp.com/api/articles/${article_id}`,
+    {
+      inc_votes: -1,
+    }
+  );
+};
+
+export const getComments = (article_id) => {
+  return axios.get(
+    `https://ostroumova-news.herokuapp.com/api/articles/${article_id}/comments`
+  );
+};
