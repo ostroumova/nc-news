@@ -5,27 +5,40 @@ const Votes = ({ article_id, votes }) => {
   const [optimisticVotes, setOptimisticVotes] = useState(0);
 
   const incrementVotes = () => {
-    setOptimisticVotes((currVotes) => {
-      return currVotes + 1;
-    });
+    setOptimisticVotes((currVotes) => currVotes + 1);
     updateArticle(article_id).catch(() => {
       alert("Something went wrong. Try another time");
-      setOptimisticVotes((currVotes) => {
-        return currVotes - 1;
-      });
+      setOptimisticVotes((currVotes) => currVotes - 1);
+    });
+  };
+
+  const decreaseVote = () => {
+    setOptimisticVotes((currVotes) => currVotes - 1);
+    updateArticle(article_id).catch(() => {
+      alert("Something went wrong. Try another time");
+      setOptimisticVotes((currVotes) => currVotes + 1);
     });
   };
   return (
-    <section>
+    <div>
       <button
         className="upvote"
         onClick={() => {
           incrementVotes();
         }}
       >
-        Upvote: {votes + optimisticVotes}
+        Upvote
       </button>
-    </section>
+      <button
+        className="decrease"
+        onClick={() => {
+          decreaseVote();
+        }}
+      >
+        Downvote:
+      </button>
+      {votes + optimisticVotes}
+    </div>
   );
 };
 

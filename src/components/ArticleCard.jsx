@@ -10,10 +10,11 @@ function ArticleCard({ article_id, comment_count, created_at, title, votes }) {
       </Link>
       <img src={"article image"} alt={"article_image"} />
       <p>{moment(created_at).utc().format("YYYY-MM-DD")}</p>
+      <div className="button-container">
+        <button className="comment">Comments:{comment_count}</button>
 
-      <button className="comment">Comments:{comment_count}</button>
-      <span className="votes">Votes:{votes}</span>
-      <Votes article_id={article_id} votes={votes} />
+        <Votes article_id={article_id} votes={votes} />
+      </div>
     </section>
   );
 }

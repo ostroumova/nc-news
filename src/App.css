@@ -29,14 +29,14 @@ html {
 }
 
 button {
-  margin-right: 200px;
-  width: 100px;
+  /* width: 100px; */
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 button.upvote {
  background-color: greenyellow;
+ margin-right: 5px;
 }
 
 .votes {
@@ -51,6 +51,18 @@ button.upvote {
   margin: 20px 25px 25px 10px;
 }
 
+.button-container {
+  display: flex;
+}
+
+.button-container {
+gap: 10%;
+}
+
+.decrease {
+  background-color: red;
+  margin-right: 5px;
+}
 
  /* .App {
   text-align: center;

@@ -33,3 +33,13 @@ export const updateArticle = (article_id) => {
       console.log(err);
     });
 };
+
+export const decreaseArticle = (article_id) => {
+  return axios
+    .patch(`https://ostroumova-news.herokuapp.com/api/articles/${article_id}`, {
+      inc_votes: -1,
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
