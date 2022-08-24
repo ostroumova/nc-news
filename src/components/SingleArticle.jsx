@@ -17,7 +17,7 @@ const SingleArticle = () => {
   return (
     <section className="singleArticle">
       <h3>{singleArticle.title}</h3>
-      <img src="article image" alt="article_image" />
+      <img src={"article image"} alt={"article_image"} />
       <p>{moment(singleArticle.created_at).utc().format("YYYY-MM-DD")}</p>
       <p>{singleArticle.body}</p>
       <button className="comment">Comment:{singleArticle.comment_count}</button>
