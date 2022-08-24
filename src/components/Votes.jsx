@@ -3,20 +3,21 @@ import { updateArticle } from "../api";
 
 const Votes = ({ article_id, votes }) => {
   const [optimisticVotes, setOptimisticVotes] = useState(0);
+  const [isErrored, setIsErrorred] = useState(false);
 
   const incrementVotes = () => {
     setOptimisticVotes((currVotes) => currVotes + 1);
     updateArticle(article_id).catch(() => {
-      alert("Something went wrong. Try another time");
       setOptimisticVotes((currVotes) => currVotes - 1);
+      setIsErrorred(true);
     });
   };
 
   const decreaseVote = () => {
     setOptimisticVotes((currVotes) => currVotes - 1);
     updateArticle(article_id).catch(() => {
-      alert("Something went wrong. Try another time");
       setOptimisticVotes((currVotes) => currVotes + 1);
+      setIsErrorred(true);
     });
   };
   return (
@@ -35,9 +36,10 @@ const Votes = ({ article_id, votes }) => {
           decreaseVote();
         }}
       >
-        Downvote:
+        Downvote
       </button>
-      {votes + optimisticVotes}
+      <span>{votes + optimisticVotes}</span>
+      {isErrored ? <p>Something went wrong. Try another time</p> : null}
     </div>
   );
 };

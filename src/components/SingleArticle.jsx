@@ -22,7 +22,6 @@ const SingleArticle = () => {
       <p>{moment(singleArticle.created_at).utc().format("YYYY-MM-DD")}</p>
       <p>{singleArticle.body}</p>
       <button className="comment">Comment:{singleArticle.comment_count}</button>
-      <span className="votes">Votes:{singleArticle.votes}</span>
       <Votes article_id={article_id} votes={singleArticle.votes} />
     </section>
   );
