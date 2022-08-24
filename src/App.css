@@ -43,6 +43,12 @@ button.upvote {
   font-weight: bold;
 }
 
+.singleArticle {
+  width: 80%;
+  text-align: left;
+  padding: 15px;
+}
+
 
  /* .App {
   text-align: center;

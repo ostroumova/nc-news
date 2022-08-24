@@ -15,7 +15,7 @@ const SingleArticle = () => {
   }, [article_id]);
 
   return (
-    <section>
+    <section className="singleArticle">
       <h3>{singleArticle.title}</h3>
       <img src="article image" alt="article_image" />
       <p>{moment(singleArticle.created_at).utc().format("YYYY-MM-DD")}</p>
