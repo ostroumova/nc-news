@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { fetchArticleById } from "../api";
 import moment from "moment";
 import { useState } from "react";
+import Votes from "./Votes";
 
 const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState({});
@@ -22,7 +23,7 @@ const SingleArticle = () => {
       <p>{singleArticle.body}</p>
       <button className="comment">Comment:{singleArticle.comment_count}</button>
       <span className="votes">Votes:{singleArticle.votes}</span>
-      <button className="upvote">Upvote</button>
+      <Votes article_id={article_id} votes={singleArticle.votes} />
     </section>
   );
 };
