@@ -47,3 +47,13 @@ export const getComments = (article_id) => {
     `https://ostroumova-news.herokuapp.com/api/articles/${article_id}/comments`
   );
 };
+
+export const postComment = (article_id) => {
+  return axios.post(
+    `https://ostroumova-news.herokuapp.com/api/articles/${article_id}/comments`,
+    {
+      username: "icellusedkars",
+      body: "We are helping you succeed;)",
+    }
+  );
+};

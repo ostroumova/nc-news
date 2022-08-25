@@ -1,3 +1,7 @@
+* {
+  width: auto;
+}
+
 .header {
   background-color: #9933cc;
   color: #ffffff;
@@ -42,6 +46,7 @@ button.upvote {
   text-align: left;
   padding: 15px;
   margin: 20px 25px 25px 10px;
+    height: 120px;
 }
 
 .button-container {
@@ -60,6 +65,24 @@ gap: 10%;
 .author {
   font-weight: 600;
 
+}
+
+.singleComment {
+  border: 4px dotted blue;
+  border-width: thin;
+  font-size: small;
+  margin-bottom: 5px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+p {
+  width: 80%;
 }
 
  /* .App {
