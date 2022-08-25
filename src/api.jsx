@@ -48,12 +48,12 @@ export const getComments = (article_id) => {
   );
 };
 
-export const postComment = (article_id, username, body) => {
+export const postComment = (article_id) => {
   return axios.post(
     `https://ostroumova-news.herokuapp.com/api/articles/${article_id}/comments`,
     {
-      username: username,
-      body: body,
+      username: "icellusedkars",
+      body: "We are helping you succeed;)",
     }
   );
 };

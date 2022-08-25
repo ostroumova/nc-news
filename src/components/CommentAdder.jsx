@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CommentAdder = ({ comments }) => {
+const CommentAdder = ({ setComments }) => {
   const [newComment, setNewComment] = useState("");
 
   const handleSubmit = (event) => {

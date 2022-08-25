@@ -5,10 +5,14 @@ import Nav from './components/Nav';
 import SingleArticle from './components/SingleArticle';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState} from 'react';
-
+import {postComment} from "./api"
 
 
 function App() {
+  postComment(2).then((res) => {
+    console.log(res);
+  })
+
   const [topics, setTopics] = useState([])
   
   return (

@@ -1,6 +1,5 @@
 import moment from "moment";
-/* import NewComment from "./NewComment";
-import CommentAdder from "./CommentAdder"; */
+/*import CommentAdder from "./CommentAdder"; */
 
 function CommentCard({ comment_id, votes, created_at, author, body }) {
   return (
