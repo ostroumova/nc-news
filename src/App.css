@@ -1,3 +1,7 @@
+* {
+  width: auto;
+}
+
 .header {
   background-color: #9933cc;
   color: #ffffff;
@@ -60,6 +64,12 @@ gap: 10%;
 .author {
   font-weight: 600;
 
+}
+
+.singleComment {
+  border: 4px dotted blue;
+  border-width: thin;
+  font-size: small;
 }
 
  /* .App {
