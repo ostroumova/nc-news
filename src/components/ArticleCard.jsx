@@ -8,7 +8,7 @@ function ArticleCard({ article_id, comment_count, created_at, title, votes }) {
       <Link to={`/articles/${article_id}`}>
         <h3>{title}</h3>
       </Link>
-      <img src={"article image"} alt={"article_image"} />
+      {/*   <img src={"https://source.unsplash.com/random"} alt={"article_image"} /> */}
       <p>{moment(created_at).utc().format("YYYY-MM-DD")}</p>
       <div className="button-container">
         <button className="comment">Comments:{comment_count}</button>
