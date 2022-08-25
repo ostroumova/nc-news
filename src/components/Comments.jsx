@@ -17,13 +17,7 @@ function Comments({ article_id }) {
       {comments.map((comment) => {
         return <CommentCard key={comment.comment_id} {...comment} />;
       })}
-      {
-        <CommentAdder
-          article_id={article_id}
-          comments={comments}
-          setComments={setComments}
-        />
-      }
+      {<CommentAdder article_id={article_id} setComments={setComments} />}
     </main>
   );
 }
