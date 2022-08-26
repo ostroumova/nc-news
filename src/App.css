@@ -37,6 +37,12 @@ button.upvote {
  margin-right: 5px;
 }
 
+button.remove {
+  margin-left: 15px;
+  margin-bottom: 5px;
+
+}
+
 .votes {
   font-weight: bold;
 }
@@ -85,6 +91,42 @@ p {
   width: 80%;
 }
 
+.block {
+
+  width: 15%;
+  border: none;
+  background-color: #04AA6D;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  color:#ffffff;
+display: inline-block;
+position: relative;
+left: 100%;
+font-weight: bolder;
+transform: translateX(-100%);
+border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+
+.block_order_by{
+  width: 15%;
+  border: none;
+  background-color: #04AA6D;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  color:#ffffff;
+display: inline-block;
+position: relative;
+font-weight: bolder;
+transform: translateX(-100%);
+border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
  /* .App {
   text-align: center;
 }

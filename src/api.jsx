@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const fetchArticles = (topic) => {
+export const fetchArticles = (topic, sort_by, order) => {
   return axios
     .get("https://ostroumova-news.herokuapp.com/api/articles", {
-      params: { topic: topic },
+      params: { topic: topic, sort_by: sort_by, order: order },
     })
     .then((res) => {
       return res.data;
@@ -59,5 +59,21 @@ export const postComment = (article_id, body) => {
     )
     .then((res) => {
       return res.data;
+    });
+};
+
+export const deleteComments = (comment_id) => {
+  return axios
+    .delete(
+      `https://ostroumova-news.herokuapp.com/api/comments/${comment_id}`,
+      {
+        username: "grumpy19",
+      }
+    )
+    .then((res) => {
+      console.log(comment_id);
+    })
+    .catch((err) => {
+      console.log(err);
     });
 };
