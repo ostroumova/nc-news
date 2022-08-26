@@ -5,9 +5,11 @@ import { deleteComments } from "../api";
 function CommentCard({ comment_id, votes, created_at, author, body }) {
   const [loggedInUser, setLoggedInUser] = useState("grumpy19");
 
-  const handleRemoveComment = (author, comment_id) => {
+  const handleRemoveComment = (event) => {
+    event.preventDefault();
+
     deleteComments(author, comment_id).then((res) => {
-      alert("Item has been removed.");
+      console.log(res);
     });
   };
 
