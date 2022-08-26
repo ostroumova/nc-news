@@ -1,7 +1,16 @@
 import moment from "moment";
-/*import CommentAdder from "./CommentAdder"; */
+import { useState } from "react";
+import { deleteComments } from "../api";
 
 function CommentCard({ comment_id, votes, created_at, author, body }) {
+  const [loggedInUser, setLoggedInUser] = useState("grumpy19");
+
+  const handleRemoveComment = (author, comment_id) => {
+    deleteComments(author, comment_id).then((res) => {
+      alert("Item has been removed.");
+    });
+  };
+
   return (
     <section className="singleComment">
       <p className="author">Comment_id: {comment_id}</p>
@@ -9,6 +18,16 @@ function CommentCard({ comment_id, votes, created_at, author, body }) {
       <p className="author">Author: {author}</p>
       <p>{body}</p>
       <span>Votes: {votes}</span>
+      {loggedInUser === author ? (
+        <button
+          className="remove"
+          onClick={() => {
+            handleRemoveComment(author, comment_id);
+          }}
+        >
+          Remove comment
+        </button>
+      ) : null}
     </section>
   );
 }

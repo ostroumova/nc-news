@@ -37,6 +37,12 @@ button.upvote {
  margin-right: 5px;
 }
 
+button.remove {
+  margin-left: 15px;
+  margin-bottom: 5px;
+
+}
+
 .votes {
   font-weight: bold;
 }

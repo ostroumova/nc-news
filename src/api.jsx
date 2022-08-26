@@ -6,7 +6,7 @@ export const fetchArticles = (topic, sort_by, order) => {
       params: { topic: topic, sort_by: sort_by, order: order },
     })
     .then((res) => {
-      console.log(res.data);
+      console.log(sort_by);
 
       return res.data;
     });
@@ -62,4 +62,13 @@ export const postComment = (article_id, body) => {
     .then((res) => {
       return res.data;
     });
+};
+
+export const deleteComments = (comment_id) => {
+  return axios.delete(
+    `https://ostroumova-news.herokuapp.com/api/comments/${comment_id}`,
+    {
+      username: "grumpy19",
+    }
+  );
 };
