@@ -22,6 +22,7 @@ function App() {
       <Route path="/articles" element={<Articles />}/>
       <Route path="/articles/topics/:topic" element={<Articles />} />
       <Route path="/articles/:article_id" element={<SingleArticle />}/>
+      <Route path='/*' element={<ErrorComponent />} /> 
     </Routes>
 
     </div>
