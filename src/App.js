@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import SingleArticle from './components/SingleArticle';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState} from 'react';
+import ErrorPage from './components/ErrorPage';
 
 
 
@@ -22,7 +23,7 @@ function App() {
       <Route path="/articles" element={<Articles />}/>
       <Route path="/articles/topics/:topic" element={<Articles />} />
       <Route path="/articles/:article_id" element={<SingleArticle />}/>
-      <Route path='/*' element={<ErrorComponent />} /> 
+      <Route path='/*' element={<ErrorPage />} /> 
     </Routes>
 
     </div>

@@ -8,11 +8,16 @@ function Articles() {
   const { topic } = useParams();
   const [sortedField, setSortedField] = useState(null);
   const [orderField, setOrderField] = useState(null);
+  const [isCatchError, setCatchError] = useState(false);
 
   useEffect(() => {
-    fetchArticles(topic, sortedField, orderField).then(({ articles }) => {
-      setArticles(articles);
-    });
+    fetchArticles(topic, sortedField, orderField)
+      .catch(() => {
+        setCatchError(true);
+      })
+      .then(({ articles }) => {
+        setArticles(articles);
+      });
   }, [topic, sortedField, orderField]);
 
   const handleChange = (event) => {
@@ -22,6 +27,14 @@ function Articles() {
   const handleOrderChange = (event) => {
     setOrderField(event.target.value);
   };
+
+  if (isCatchError === true) {
+    return (
+      <div className="errorMessage">
+        <p>Something went wrong. Please check and try again!</p>
+      </div>
+    );
+  }
 
   return (
     <main>

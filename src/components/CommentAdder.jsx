@@ -4,20 +4,33 @@ import { postComment } from "../api";
 const CommentAdder = ({ setComments, article_id }) => {
   const [newComment, setNewComment] = useState("");
   const [isEmpty, setEmpty] = useState(true);
+  const [isCatchError, setCatchError] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (newComment.length > 1) {
       setEmpty(false);
-      postComment(article_id, newComment).then((newCommentApi) => {
-        setComments((currComments) => {
-          return [...currComments, newCommentApi];
+      postComment(article_id, newComment)
+        .catch(() => {
+          setCatchError(true);
+        })
+        .then((newCommentApi) => {
+          setComments((currComments) => {
+            return [...currComments, newCommentApi];
+          });
         });
-      });
       setNewComment("");
     }
   };
+
+  if (isCatchError === true) {
+    return (
+      <div className="errorMessage">
+        <p>Something went wrong. Please check and try again!</p>
+      </div>
+    );
+  }
 
   return (
     <form onSubmit={handleSubmit}>

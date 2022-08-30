@@ -9,13 +9,26 @@ import Comments from "./Comments";
 const SingleArticle = () => {
   const [singleArticle, setSingleArticle] = useState({});
   const { article_id } = useParams();
+  const [isCatchError, setCatchError] = useState(false);
   //const [commentsClicked, setComments] = useState(false);
 
   useEffect(() => {
-    fetchArticleById(article_id).then((res) => {
-      setSingleArticle(res.data.article);
-    });
+    fetchArticleById(article_id)
+      .catch(() => {
+        setCatchError(true);
+      })
+      .then((res) => {
+        setSingleArticle(res.data.article);
+      });
   }, [article_id]);
+
+  if (isCatchError === true) {
+    return (
+      <div className="errorMessage">
+        <p>Something went wrong. Please check and try again!</p>
+      </div>
+    );
+  }
 
   return (
     <section className="singleArticle">

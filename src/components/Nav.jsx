@@ -1,13 +1,27 @@
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchTopics } from "../api";
 
 const Nav = ({ topics, setTopics }) => {
+  const [isCatchError, setCatchError] = useState(false);
+
   useEffect(() => {
-    fetchTopics().then(({ topics: topicsFromApi }) => {
-      setTopics(topicsFromApi);
-    });
+    fetchTopics()
+      .catch(() => {
+        setCatchError(true);
+      })
+      .then(({ topics: topicsFromApi }) => {
+        setTopics(topicsFromApi);
+      });
   }, [setTopics]);
+
+  if (isCatchError === true) {
+    return (
+      <div className="errorMessage">
+        <p>Something went wrong. Please check and try again!</p>
+      </div>
+    );
+  }
 
   return (
     <nav className="row">

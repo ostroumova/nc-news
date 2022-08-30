@@ -4,14 +4,27 @@ import { deleteComments } from "../api";
 
 function CommentCard({ comment_id, votes, created_at, author, body }) {
   const [loggedInUser, setLoggedInUser] = useState("grumpy19");
+  const [isCatchError, setCatchError] = useState(false);
 
   const handleRemoveComment = (event) => {
     event.preventDefault();
 
-    deleteComments(author, comment_id).then((res) => {
-      console.log(res);
-    });
+    deleteComments(author, comment_id)
+      .catch(() => {
+        setCatchError(true);
+      })
+      .then(() => {
+        setLoggedInUser({ author });
+      });
   };
+
+  if (isCatchError === true) {
+    return (
+      <div className="errorMessage">
+        <p>Something went wrong. Please check and try again!</p>
+      </div>
+    );
+  }
 
   return (
     <section className="singleComment">
