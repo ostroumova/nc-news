@@ -64,16 +64,8 @@ export const postComment = (article_id, body) => {
 
 export const deleteComments = (comment_id) => {
   return axios
-    .delete(
-      `https://ostroumova-news.herokuapp.com/api/comments/${comment_id}`,
-      {
-        username: "grumpy19",
-      }
-    )
+    .delete(`https://ostroumova-news.herokuapp.com/api/comments/${comment_id}`)
     .then((res) => {
-      console.log(comment_id);
-    })
-    .catch((err) => {
-      console.log(err);
+      return res.status;
     });
 };

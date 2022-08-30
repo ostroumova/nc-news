@@ -2,8 +2,16 @@ import moment from "moment";
 import { useState } from "react";
 import { deleteComments } from "../api";
 
-function CommentCard({ comment_id, votes, created_at, author, body }) {
+function CommentCard({
+  setComments,
+  comment_id,
+  votes,
+  created_at,
+  author,
+  body,
+}) {
   const [loggedInUser, setLoggedInUser] = useState("grumpy19");
+
   const [isCatchError, setCatchError] = useState(false);
 
   const handleRemoveComment = (event) => {
@@ -16,6 +24,18 @@ function CommentCard({ comment_id, votes, created_at, author, body }) {
       .then(() => {
         setLoggedInUser({ author });
       });
+
+  const [isRemoved, setIsRemoved] = useState(false);
+
+  const handleRemoveComment = () => {
+    deleteComments(comment_id).then(() => {
+      setComments((currComments) => {
+        return currComments.filter((comment) => {
+          return comment.comment_id !== comment_id;
+        });
+      });
+    });
+    setIsRemoved(true);
   };
 
   if (isCatchError === true) {
@@ -37,12 +57,13 @@ function CommentCard({ comment_id, votes, created_at, author, body }) {
         <button
           className="remove"
           onClick={() => {
-            handleRemoveComment(author, comment_id);
+            handleRemoveComment();
           }}
         >
           Remove comment
         </button>
       ) : null}
+      {isRemoved ? <p>Your comment was remeoved succesfully</p> : null}
     </section>
   );
 }
