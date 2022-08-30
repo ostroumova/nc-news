@@ -2,6 +2,18 @@
   width: auto;
 }
 
+.errorMessage {
+  display: flex;
+  background-color: yellow;
+  color: #9933cc;
+  padding: 15px;
+  text-align: right;
+  border: #ffffff solid;
+  font-weight: bolder;
+  font-style: italic;
+
+}
+
 .header {
   background-color: #9933cc;
   color: #ffffff;
@@ -127,6 +139,29 @@ transform: translateX(-100%);
 border-radius: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+
+.pageNotFound{
+  background-image: url("https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80");
+}
+
+.notFound{
+  display: flex;
+  background-color: transparent;
+  font-weight: bolder;
+  justify-content:  center ;
+  font-size: xx-large;
+  color: white;
+}
+
+.error{
+  display: flex;
+  background-color: transparent;
+  font-weight: bolder;
+  justify-content:  center;
+  font-size: xx-large;
+  color: white;
+}
+
  /* .App {
   text-align: center;
 }

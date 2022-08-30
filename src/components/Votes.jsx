@@ -20,6 +20,10 @@ const Votes = ({ article_id, votes }) => {
       setIsErrorred(true);
     });
   };
+
+  console.log(votes, "votes");
+  console.log(optimisticVotes, "optimisticVotes");
+
   return (
     <div>
       <button

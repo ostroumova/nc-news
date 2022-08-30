@@ -11,6 +11,20 @@ function CommentCard({
   body,
 }) {
   const [loggedInUser, setLoggedInUser] = useState("grumpy19");
+
+  const [isCatchError, setCatchError] = useState(false);
+
+  const handleRemoveComment = (event) => {
+    event.preventDefault();
+
+    deleteComments(author, comment_id)
+      .catch(() => {
+        setCatchError(true);
+      })
+      .then(() => {
+        setLoggedInUser({ author });
+      });
+
   const [isRemoved, setIsRemoved] = useState(false);
 
   const handleRemoveComment = () => {
@@ -23,6 +37,14 @@ function CommentCard({
     });
     setIsRemoved(true);
   };
+
+  if (isCatchError === true) {
+    return (
+      <div className="errorMessage">
+        <p>Something went wrong. Please check and try again!</p>
+      </div>
+    );
+  }
 
   return (
     <section className="singleComment">
