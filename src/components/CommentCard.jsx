@@ -25,47 +25,48 @@ function CommentCard({
         setLoggedInUser({ author });
       });
 
-  const [isRemoved, setIsRemoved] = useState(false);
+    const [isRemoved, setIsRemoved] = useState(false);
 
-  const handleRemoveComment = () => {
-    deleteComments(comment_id).then(() => {
-      setComments((currComments) => {
-        return currComments.filter((comment) => {
-          return comment.comment_id !== comment_id;
+    const handleRemoveComment = () => {
+      deleteComments(comment_id).then(() => {
+        setComments((currComments) => {
+          return currComments.filter((comment) => {
+            return comment.comment_id !== comment_id;
+          });
         });
       });
-    });
-    setIsRemoved(true);
-  };
+      setIsRemoved(true);
+    };
 
-  if (isCatchError === true) {
+    if (isCatchError === true) {
+      return (
+        <div className="errorMessage">
+          <p>Something went wrong. Please check and try again!</p>
+        </div>
+      );
+    }
+
     return (
-      <div className="errorMessage">
-        <p>Something went wrong. Please check and try again!</p>
-      </div>
+      <section className="singleComment">
+        <p className="author">Comment_id: {comment_id}</p>
+        <p>{moment(created_at).utc().format("YYYY-MM-DD")}</p>
+        <p className="author">Author: {author}</p>
+        <p>{body}</p>
+        <span>Votes: {votes}</span>
+        {loggedInUser === author ? (
+          <button
+            className="remove"
+            onClick={() => {
+              handleRemoveComment();
+            }}
+          >
+            Remove comment
+          </button>
+        ) : null}
+        {isRemoved ? <p>Your comment was remeoved succesfully</p> : null}
+      </section>
     );
-  }
-
-  return (
-    <section className="singleComment">
-      <p className="author">Comment_id: {comment_id}</p>
-      <p>{moment(created_at).utc().format("YYYY-MM-DD")}</p>
-      <p className="author">Author: {author}</p>
-      <p>{body}</p>
-      <span>Votes: {votes}</span>
-      {loggedInUser === author ? (
-        <button
-          className="remove"
-          onClick={() => {
-            handleRemoveComment();
-          }}
-        >
-          Remove comment
-        </button>
-      ) : null}
-      {isRemoved ? <p>Your comment was remeoved succesfully</p> : null}
-    </section>
-  );
+  };
 }
 
 export default CommentCard;
