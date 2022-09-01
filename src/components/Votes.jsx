@@ -21,9 +21,6 @@ const Votes = ({ article_id, votes = 0 }) => {
     });
   };
 
-  console.log(votes, "votes");
-  console.log(optimisticVotes, "optimisticVotes");
-
   return (
     <div>
       <button
