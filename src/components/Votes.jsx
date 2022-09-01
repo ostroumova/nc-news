@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { updateArticle } from "../api";
 
-const Votes = ({ article_id, votes }) => {
+const Votes = ({ article_id, votes = 0 }) => {
   const [optimisticVotes, setOptimisticVotes] = useState(0);
   const [isErrored, setIsErrorred] = useState(false);
 
