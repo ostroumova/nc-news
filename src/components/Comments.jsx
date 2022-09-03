@@ -6,6 +6,7 @@ import CommentAdder from "./CommentAdder";
 function Comments({ article_id }) {
   const [comments, setComments] = useState([]);
   const [isCatchError, setCatchError] = useState(false);
+  console.log(comments);
 
   useEffect(() => {
     getComments(article_id)

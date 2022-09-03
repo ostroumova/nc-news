@@ -72,5 +72,6 @@ export const deleteComments = (comment_id) => {
     )
     .catch((err) => {
       console.log(err);
+
     });
 };
