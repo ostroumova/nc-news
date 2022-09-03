@@ -70,9 +70,6 @@ export const deleteComments = (comment_id) => {
         username: "grumpy19",
       }
     )
-    .then((res) => {
-      console.log(comment_id);
-    })
     .catch((err) => {
       console.log(err);
     });

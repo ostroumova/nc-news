@@ -28,7 +28,13 @@ function Comments({ article_id }) {
   return (
     <main>
       {comments.map((comment) => {
-        return <CommentCard key={comment.comment_id} {...comment} />;
+        return (
+          <CommentCard
+            setComments={setComments}
+            key={comment.comment_id}
+            {...comment}
+          />
+        );
       })}
       {<CommentAdder article_id={article_id} setComments={setComments} />}
     </main>
