@@ -11,6 +11,7 @@
 A link to the deployed version: <a href="https://ostroumova-nc-news.netlify.app">link</a> <br>
 Back end part of the project can be found here:  <a href="https://github.com/ostroumova/be-nc-news-public">link</a> <br>
 
+
 To run the project locally: <br> 
 <code>git clone https://github.com/ostroumova/nc-news</code> <br>
 <code>cd nc-news</code>
